@@ -1,7 +1,9 @@
 ﻿/**
  * @ Author: Akshaya Niraula
+ * @ Create Time: 2021-10-28 06:40:35
  * @ Modified by: Akshaya Niraula
- * @ Description: Copyright (c) 2021 Akshaya Niraula. See LICENSE for details
+ * @ Modified time: 2021-11-09 19:41:18
+ * @ Copyright: Copyright (c) 2021 Akshaya Niraula. See LICENSE for details
  */
 
 using Haestad.Drawing.Domain;

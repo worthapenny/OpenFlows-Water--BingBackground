@@ -1,8 +1,11 @@
 ﻿/**
  * @ Author: Akshaya Niraula
+ * @ Create Time: 2021-10-30 21:29:49
  * @ Modified by: Akshaya Niraula
- * @ Description: Copyright (c) 2021 Akshaya Niraula. See LICENSE for details
+ * @ Modified time: 2021-11-09 19:42:45
+ * @ Copyright: Copyright (c) 2021 Akshaya Niraula. See LICENSE for details
  */
+
 
 namespace OFW.BingBackground.Support
 {
