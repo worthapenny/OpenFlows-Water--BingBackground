@@ -23,6 +23,7 @@ using Haestad.WaterProduct.Application;
 using OFW.BingBackground.FormModel;
 using OpenFlows.Application;
 using OpenFlows.Water;
+using OpenFlows.Water.Application;
 using OpenFlows.Water.Domain;
 using System;
 using System.Drawing;
@@ -58,10 +59,10 @@ namespace OFW.BingBackground.Forms
 
                 try
                 {
-                    ApplicationManager.GetInstance().ParentFormUIModel.Initialize();
+                    WaterApplicationManager.GetInstance().ParentFormUIModel.Initialize();
                     InitializeDockingManagers();
 
-                    ApplicationManager.GetInstance().ParentFormUIModel.DoLazyInitialization();
+                    WaterApplicationManager.GetInstance().ParentFormUIModel.DoLazyInitialization();
                 }
                 finally
                 {
@@ -73,7 +74,7 @@ namespace OFW.BingBackground.Forms
         }
         private void InitializeDockingManagers()
         {
-            var bgLayerProxy = ApplicationManager.GetInstance().ParentFormUIModel.BackgroundLayerProxy;
+            var bgLayerProxy = WaterApplicationManager.GetInstance().ParentFormUIModel.BackgroundLayerProxy;
             bgLayerProxy.Dock = DockStyle.Fill;
             splitContainerDrawing.Panel1.Controls.Add(bgLayerProxy);
 
@@ -98,7 +99,7 @@ namespace OFW.BingBackground.Forms
             documentControl.AllowDrop = false;
 
             documentControl.SuspendLayout();
-            (ApplicationManager.GetInstance().ParentFormModel.CurrentProject as IGraphicalProject).Drawing.AllowRefresh = true;
+            (WaterApplicationManager.GetInstance().ParentFormModel.CurrentProject as IGraphicalProject).Drawing.AllowRefresh = true;
             documentControl.SuspendDrawing();
             documentControl.BackColor = Color.White;
             documentControl.Dock = DockStyle.Fill;
@@ -106,10 +107,11 @@ namespace OFW.BingBackground.Forms
             documentControl.Name = "GLDrawingControl";
             documentControl.Dock = DockStyle.Fill;
 
-            MDIDrawingFormModelBase drawingFormModel = (ParentFormModel as WaterProductParentFormModel).GraphicalEditorFormModelFactory.NewMDIDrawingFormModel() as MDIDrawingFormModelBase;
+            MDIDrawingFormModelBase drawingFormModel = (ParentFormModel as WaterProductParentFormModel).GraphicalEditorFormModelFactory.NewMDIDrawingFormModel(
+                WaterApplicationManager.GetInstance().ParentFormModel.CurrentProject as IDomainProject) as MDIDrawingFormModelBase;
             documentControl.LoadUserControl(drawingFormModel.GLDrawingControlModel);
             documentControl.GraphicalProject = ParentFormModel.CurrentProject as IGraphicalProject;
-            documentControl.DrawingToolManager = ApplicationManager.GetInstance().ParentFormUIModel.LayoutController.DrawingToolManager;
+            documentControl.DrawingToolManager = WaterApplicationManager.GetInstance().ParentFormUIModel.LayoutController.DrawingToolManager;
 
             return documentControl;
         }
@@ -222,7 +224,7 @@ namespace OFW.BingBackground.Forms
                     // Need help here
                     // How can I refresh the Background Layer TreeView?
 
-                    ApplicationManager.GetInstance().ParentFormUIModel.BackgroundLayerProxy.Invalidate();
+                    WaterApplicationManager.GetInstance().ParentFormUIModel.BackgroundLayerProxy.Invalidate();
                     MessageBox.Show(this, "Bing background added!", "Bing background", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
 
@@ -303,7 +305,7 @@ namespace OFW.BingBackground.Forms
         private BingBackgroundLayerFormModel BingBackgroundLayerFormModel { get; set; }
         private GLDrawingControl GLDrawingControl { get; set; }
         private bool IsLazyInitialized { get; set; }
-        private LayoutControllerBase LayoutController => ApplicationManager.GetInstance().ParentFormUIModel.LayoutController;
+        private LayoutControllerBase LayoutController => WaterApplicationManager.GetInstance().ParentFormUIModel.LayoutController;
 
         #endregion
 

@@ -103,7 +103,8 @@
       <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Support.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Haestad.Water.Forms, Version=10.3.5.30, Culture=neutral, PublicKeyToken=b4db808388021f6e">
+    <Reference Include="Haestad.Water.Forms, Version=10.3.5.30, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="Haestad.WaterProduct">
@@ -112,12 +113,21 @@
     </Reference>
     <Reference Include="OpenFlows">
       <HintPath>..\..\..\..\Perforce\Aspen\Components\OpenFlows\Assemblies\_LastKnownGood\OpenFlows.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="OpenFlows.Water">
       <HintPath>..\..\..\..\Perforce\Aspen\Components\OpenFlows.Water\Assemblies\_LastKnownGood\OpenFlows.Water.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="OpenFlows.Water.Application">
       <HintPath>..\..\..\..\Perforce\Aspen\Components\OpenFlows.Water.Application\Assemblies\_LastKnownGood\OpenFlows.Water.Application.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.11.0-dev-01371\lib\net46\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.Console.4.0.1\lib\net45\Serilog.Sinks.Console.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -8,7 +8,11 @@
 
 using OFW.BingBackground.Forms;
 using OpenFlows.Application;
+using OpenFlows.Water;
 using OpenFlows.Water.Application;
+using Serilog;
+using Serilog.Core;
+using Serilog.Events;
 using System;
 
 namespace OFW.BingBackground
@@ -21,23 +25,36 @@ namespace OFW.BingBackground
         [STAThread]
         public static int Main()
         {
-            ApplicationManager.SetApplicationManager(new WaterAppManager());
-            ApplicationManager.GetInstance().SetParentFormSurrogateDelegate(
+            ApplicationManagerBase.SetApplicationManager(new WaterApplicationManager());
+            WaterApplicationManager.GetInstance().SetParentFormSurrogateDelegate(
                 new ParentFormSurrogateDelegate((fm) =>
                 {
                     return new BingBackgroundLayerForm(fm);
                 }));
 
-            ApplicationManager.GetInstance().Start();
-            ApplicationManager.GetInstance().Stop();
+            OpenFlowsWater.StartSession(WaterProductLicenseType.WaterGEMS);
+
+
+            // Set up the logging mechanism            
+            string logTemplate = "{Timestamp:MM-dd HH:mm:ss.fff} [{Level}] {Message}{NewLine}{Exception}";
+            var logLevelSwitch = new LoggingLevelSwitch();
+            logLevelSwitch.MinimumLevel = LogEventLevel.Debug;
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.ControlledBy(logLevelSwitch)
+                .WriteTo.Console(outputTemplate: logTemplate)
+                .CreateLogger();
+
+
+            WaterApplicationManager.GetInstance().Start();
+            WaterApplicationManager.GetInstance().Stop();
 
             return 0;
         }
     }
 
-    public class WaterAppManager : WaterApplicationManager
-    {
-        protected override bool IsHeadless => false;
-    }
+    //public class WaterAppManager : WaterApplicationManager
+    //{
+    //    protected override bool IsHeadless => false;
+    //}
 }
 
