@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Output\OFW.BingBackground.Test\bin\x64\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -35,7 +35,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\Output\OFW.BingBackground\bin\x64\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -56,72 +56,55 @@
       <HintPath>..\packages\DotSpatial.Projections.2.0.0-rc1\lib\net40-client\DotSpatial.Projections.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Domain">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Domain.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Domain.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Domain.ModelingObjects.Water">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Domain.ModelingObjects.Water.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Domain.ModelingObjects.Water.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Drawing">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Drawing.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Drawing.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Drawing.Control">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Drawing.Control.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Drawing.Control.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Drawing.Domain">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Drawing.Domain.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Drawing.Domain.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Framework">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Framework.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Framework.Windows.Forms">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Framework.Windows.Forms.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Framework.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.LicensingFacade">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.LicensingFacade.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.LicensingFacade.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Mapping">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Mapping.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Mapping.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Maps.BingMaps">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Maps.BingMaps.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Maps.BingMaps.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Maps.Domain">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Maps.Domain.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Maps.Domain.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Support">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Support.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Support.dll</HintPath>
     </Reference>
-    <Reference Include="Haestad.Water.Forms, Version=10.3.5.30, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+    <Reference Include="Haestad.Water.Forms">
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Water.Forms.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.WaterProduct">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.WaterProduct.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.WaterProduct.dll</HintPath>
     </Reference>
     <Reference Include="OpenFlows">
-      <HintPath>..\..\..\..\Perforce\Aspen\Components\OpenFlows\Assemblies\_LastKnownGood\OpenFlows.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\OpenFlows.dll</HintPath>
     </Reference>
     <Reference Include="OpenFlows.Water">
-      <HintPath>..\..\..\..\Perforce\Aspen\Components\OpenFlows.Water\Assemblies\_LastKnownGood\OpenFlows.Water.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\OpenFlows.Water.dll</HintPath>
     </Reference>
     <Reference Include="OpenFlows.Water.Application">
-      <HintPath>..\..\..\..\Perforce\Aspen\Components\OpenFlows.Water.Application\Assemblies\_LastKnownGood\OpenFlows.Water.Application.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\OpenFlows.Water.Application.dll</HintPath>
     </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.11.0-dev-01371\lib\net46\Serilog.dll</HintPath>

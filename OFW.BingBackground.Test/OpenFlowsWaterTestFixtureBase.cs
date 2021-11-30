@@ -29,7 +29,7 @@ namespace OFW.BingBackground.Test
         [SetUp]
         public void Setup()
         {
-            Assert.AreEqual(LicenseRunStatusEnum.OK, StartSession(WaterProductLicenseType.WaterGEMS));
+            Assert.AreEqual(LicenseRunStatusEnum.OK, StartSession(WaterProductLicenseType.WaterCAD));
             Assert.AreEqual(true, IsValid());
 
             SetupImpl();

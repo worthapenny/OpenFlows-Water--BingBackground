@@ -6,6 +6,9 @@
  * @ Copyright: Copyright (c) 2021 Akshaya Niraula. See LICENSE for details
  */
 
+using Haestad.Framework.Application;
+using Haestad.LicensingFacade;
+using Haestad.WaterProduct.Application;
 using OFW.BingBackground.Forms;
 using OpenFlows.Application;
 using OpenFlows.Water;
@@ -25,14 +28,14 @@ namespace OFW.BingBackground
         [STAThread]
         public static int Main()
         {
-            ApplicationManagerBase.SetApplicationManager(new WaterApplicationManager());
+            ApplicationManagerBase.SetApplicationManager(new WaterAppManager());
             WaterApplicationManager.GetInstance().SetParentFormSurrogateDelegate(
                 new ParentFormSurrogateDelegate((fm) =>
                 {
                     return new BingBackgroundLayerForm(fm);
                 }));
 
-            OpenFlowsWater.StartSession(WaterProductLicenseType.WaterGEMS);
+            OpenFlowsWater.StartSession(WaterProductLicenseType.WaterCAD);
 
 
             // Set up the logging mechanism            
@@ -43,18 +46,24 @@ namespace OFW.BingBackground
                 .MinimumLevel.ControlledBy(logLevelSwitch)
                 .WriteTo.Console(outputTemplate: logTemplate)
                 .CreateLogger();
+                        
 
-
-            WaterApplicationManager.GetInstance().Start();
+            
+            WaterApplicationManager.GetInstance().Start(true);
             WaterApplicationManager.GetInstance().Stop();
 
             return 0;
         }
     }
 
-    //public class WaterAppManager : WaterApplicationManager
-    //{
-    //    protected override bool IsHeadless => false;
-    //}
+    public class WaterAppManager : WaterApplicationManager
+    {
+        protected override bool IsHeadless => false;
+
+        protected override IDomainApplicationModel NewApplicationModel()
+            => new WaterProductApplicationModel(LicensePlatformType.Standalone, "10.00.00.00", null);
+    }
+
+
 }
 

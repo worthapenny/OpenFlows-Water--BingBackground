@@ -239,7 +239,8 @@ namespace OFW.BingBackground.Forms
             {
                 DoLazyInitialization(true);
                 OpenFile(open.FileName);
-                WaterModel = OpenFlowsWater.GetModel(ParentFormModel.CurrentProject);
+                //WaterModel = OpenFlowsWater.GetModel(ParentFormModel.CurrentProject);
+                WaterModel = WaterApplicationManager.GetInstance().CurrentWaterModel;
 
                 if (ParentFormModel.CurrentProject != null)
                 {

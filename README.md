@@ -1,10 +1,12 @@
 # Apply Bing map background the easy way to WaterGEMS WaterCAD or WaterOPS
 
-The application is written in C# using WaterObjects.NET API and OpenFlows Water API allowing an individual to easily apply the Bing map background with ease.
+Add Bing map background in the main application is not the easiest as you have to figure out, copy/paste the latitude and longitude for the corresponding point(s).
+
+This application aim on easing that process. All one has to enter is either EPSG (European Petroleum Survey Group) code or country/state of the network to lookup the EPSG code.
 
 ## Demo
 
-[video]
+[![Apply Bing Background Demo](http://img.youtube.com/vi/19C8svER84g/0.jpg)](https://youtu.be/19C8svER84g "Demo Video")
 
 ## Methodology
 
@@ -26,6 +28,8 @@ public double[][] GetControlPointsUsingJunctionNodes()
     var points = MathLibrary.TriangulatedControlPoints(xField, yField);
     return points;
 }
+
+
 public double[][] GetLatLngPoints(double[][] points, ProjectionInfo fromProj)
 {
     var toProj = ProjectionInfo.FromEpsgCode(LatLngEpsgCode);
@@ -130,5 +134,21 @@ private static List<Epsg> SearchEpsgCodes(string keyword)
     }
 
     return codes;
+}
+```
+
+## Open Project as StandAlone (rather than Unknown)
+
+Since this project is related to background layers, we have to open up the project bit differently. Most of the time, we do not have to create a sub class of `WaterApplicationManager` but here we are creating one and modifying some properties as shown.
+
+The default behavior is `LicensePlatformType.Unknown` which will result in some null reference exception when trying to work with background layers. So is the correct approach in this case.
+
+```csharp
+public class WaterAppManager : WaterApplicationManager
+{
+    protected override bool IsHeadless => false;
+
+    protected override IDomainApplicationModel NewApplicationModel()
+        => new WaterProductApplicationModel(LicensePlatformType.Standalone, "10.00.00.00", null);
 }
 ```
