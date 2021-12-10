@@ -8,6 +8,21 @@ This application aim on easing that process. All one has to enter is either EPSG
 
 [![Apply Bing Background Demo](http://img.youtube.com/vi/19C8svER84g/0.jpg)](https://youtu.be/19C8svER84g "Demo Video")
 
+## Download
+
+Make sure to download the right version of the application. The OpenFlows-Water (OFW) is relative new API, so newer version of Water products are currently supported
+
+### [Download v10.4.x.x](OFW.BingBackground/_setup.bat)
+
+## Setup (Must Do!)
+
+After extracting the contents from the compressed file, paste them over to the installation directory (typically: `C:\Program Files (x86)\Bentley\WaterGEMS\x64`).
+
+## How to run
+
+Open up the `OFW.BingBackground.exe` and screen like below loads.
+![model_merger_form](images/model_merger_form.png "Model Merger Form")
+
 ## Methodology
 
 For a given network, the tool find the Control Points, triangular points based on Junction locations. The X, and Y values from these triangular points are converted to Latitude and Longitude using DotSpatial package.

@@ -23,6 +23,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
+    <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <DefineConstants>TRACE</DefineConstants>
@@ -49,79 +50,31 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Haestad.Calculations.Pressure">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Calculations.Pressure.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Calculations.Pressure.ResultsReader">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Calculations.Pressure.ResultsReader.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Calculations.Scada.Domain">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Calculations.Scada.Domain.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Calculations.Scada.ScadaReader">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Calculations.Scada.ScadaReader.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Calculations.Support">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Calculations.Support.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Domain">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Domain.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Domain.DataObjects">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Domain.DataObjects.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Domain.DataObjects.Water">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Domain.DataObjects.Water.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Domain.ModelingObjects">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Domain.ModelingObjects.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Domain.ModelingObjects.Water">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Domain.ModelingObjects.Water.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Drawing, Version=10.4.0.30, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+    <Reference Include="Haestad.Drawing.Domain, Version=10.4.0.30, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Drawing.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Drawing.Domain.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="Haestad.Drawing.Control, Version=10.4.0.30, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+    <Reference Include="Haestad.Framework, Version=10.4.0.30, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Drawing.Control.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Framework.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="Haestad.Drawing.Domain, Version=10.3.5.30, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+    <Reference Include="Haestad.Support, Version=10.4.0.30, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Drawing.Domain.dll</HintPath>
-    </Reference>
-    <Reference Include="Haestad.Framework">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Framework.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.LicensingFacade">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.LicensingFacade.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.SQLite">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.SQLite.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Haestad.Support">
-      <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\Haestad.Support.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Bentley\WaterCAD\x64\Haestad.Support.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="OpenFlows">
       <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\OpenFlows.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="OpenFlows.Water">
       <HintPath>C:\Program Files (x86)\Bentley\WaterGEMS\x64\OpenFlows.Water.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OpenFlows.Water.Application, Version=10.4.0.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -133,7 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OpenFlowsWaterTestFixtureBase.cs" />
+    <Compile Include="OFWAppTestFixtureBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests.cs" />
   </ItemGroup>
@@ -156,11 +109,16 @@
     <ProjectReference Include="..\OFW.BingBackground\OFW.BingBackground.csproj">
       <Project>{50936573-8814-4d2e-be42-dfd16ea42b7a}</Project>
       <Name>OFW.BingBackground</Name>
+      <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>cd $(ProjectDir)
 call _setup.bat "$(TargetDir)" $(PlatformName)</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>

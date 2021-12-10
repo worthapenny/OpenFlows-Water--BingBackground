@@ -7,19 +7,22 @@
  */
 
 
-using Haestad.LicensingFacade;
+using Haestad.Framework.Application;
 using NUnit.Framework;
+using OpenFlows.Application;
 using OpenFlows.Water;
+using OpenFlows.Water.Application;
 using OpenFlows.Water.Domain;
 using System.IO;
-using static OpenFlows.Water.OpenFlowsWater;
 
 namespace OFW.BingBackground.Test
 {
-    public abstract class OpenFlowsWaterTestFixtureBase
+
+
+    public abstract class OFWAppTestFixtureBase
     {
         #region Constructor
-        public OpenFlowsWaterTestFixtureBase()
+        public OFWAppTestFixtureBase()
         {
 
         }
@@ -29,8 +32,12 @@ namespace OFW.BingBackground.Test
         [SetUp]
         public void Setup()
         {
-            Assert.AreEqual(LicenseRunStatusEnum.OK, StartSession(WaterProductLicenseType.WaterCAD));
-            Assert.AreEqual(true, IsValid());
+            ApplicationManagerBase.SetApplicationManager(new WaterAppManager());
+
+            // By passing in false, this will suppress the primary user interface.
+            // Make sure you are logged into CONNECTION client.
+            WaterApplicationManager.GetInstance().Start(false);
+            OpenFlowsWater.SetMaxProjects(5);
 
             SetupImpl();
         }
@@ -40,33 +47,32 @@ namespace OFW.BingBackground.Test
         [TearDown]
         public void Teardown()
         {
-            if (WaterModel != null)
-                WaterModel.Dispose();
-            WaterModel = null;
-
             TeardownImpl();
 
-            EndSession();
+            WaterApplicationManager.GetInstance().Stop();
         }
         protected virtual void TeardownImpl()
         {
-
         }
         #endregion
 
         #region Protected Methods
         protected void OpenModel(string filename)
         {
-            WaterModel = Open(filename);
-        }
-        #endregion
+            ProjectProperties pp = ProjectProperties.Default;
+            pp.NominalProjectPath = filename;
 
-        #region Protected Properties
+            WaterApplicationManager.GetInstance().ParentFormModel.OpenProject(pp);
+        }
         protected virtual string BuildTestFilename(string baseFilename)
         {
             return Path.Combine(@"D:\Development\Data\ModelData", baseFilename);
         }
-    protected IWaterModel WaterModel { get; private set; }
+        #endregion
+
+        #region Protected Properties
+        protected IWaterModel WaterModel => WaterApplicationManager.GetInstance().CurrentWaterModel;
+        protected IProject Project => WaterApplicationManager.GetInstance().ParentFormModel.CurrentProject;
         #endregion
     }
 }

@@ -166,4 +166,8 @@
     <PostBuildEvent>cd $(ProjectDir)
 call _setup.bat "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

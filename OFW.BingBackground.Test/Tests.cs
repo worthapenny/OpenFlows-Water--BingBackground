@@ -23,7 +23,7 @@ using System.Linq;
 namespace OFW.BingBackground.Test
 {
     [TestFixture]
-    public class Tests: OpenFlowsWaterTestFixtureBase
+    public class Tests: OFWAppTestFixtureBase
     {
         #region Constructor
         public Tests()
@@ -63,7 +63,7 @@ namespace OFW.BingBackground.Test
             Assert.AreEqual(3063427.0521996939, upperMidPoint[0], 0.001);
             Assert.AreEqual(1235643.6180421796, upperMidPoint[1], 0.001);
             Assert.AreEqual(3063703.763052071, lowerRightPoint[0], 0.001);
-            Assert.AreEqual(1234961.4915434157, lowerRightPoint[1], 0.001);
+            Assert.AreEqual(1235643.6180421796, lowerRightPoint[1], 0.001);
 
             var fromProj = ProjectionInfo.FromEpsgCode(2231); // Colorado North
             var latLngPoints = controlPoints.GetLatLngPoints(points, fromProj);
@@ -74,7 +74,7 @@ namespace OFW.BingBackground.Test
             Assert.AreEqual(-105.27366512141187, latLngPoints[1][0], 0.001);
             Assert.AreEqual(39.980003604103359, latLngPoints[1][1], 0.001);
             Assert.AreEqual(-105.27267770293332, latLngPoints[2][0], 0.001);
-            Assert.AreEqual(9.980001661000024, latLngPoints[2][1], 0.001);
+            Assert.AreEqual(39.980001661000024, latLngPoints[2][1], 0.001);
 
         }
 
@@ -135,7 +135,7 @@ namespace OFW.BingBackground.Test
         [Test]
         public void BingBackgroundLayerFormModelApplyTestTest()
         {
-            IGraphicalProject graphicalProject = null;
+            IGraphicalProject graphicalProject = Project as IGraphicalProject;
             var formModel = new BingBackgroundLayerFormModel(WaterModel, graphicalProject);
             Assert.IsNotNull(formModel);
 
