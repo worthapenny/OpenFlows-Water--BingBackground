@@ -18,6 +18,7 @@ namespace OFW.BingBackground.Forms
         public SearchEpsgCodeForm()
         {
             InitializeComponent();
+            this.ShowInTaskbar = false;
         }
         public SearchEpsgCodeForm(SearchEpsgCodeFormModel formModel):this()
         { 

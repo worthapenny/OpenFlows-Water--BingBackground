@@ -23,7 +23,8 @@
     <PlatformTarget>x64</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>Output\bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <DefineConstants>TRACE</DefineConstants>
@@ -114,7 +115,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>cd $(ProjectDir)
+    <PostBuildEvent>if exist "$(ProjectDir)Output" rd /q /s "$(ProjectDir)Output"
+
+cd $(ProjectDir)
 call _setup.bat "$(TargetDir)" $(PlatformName)</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

@@ -26,6 +26,7 @@ using OpenFlows.Water;
 using OpenFlows.Water.Application;
 using OpenFlows.Water.Domain;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -269,8 +270,18 @@ namespace OFW.BingBackground.Forms
             if (PromptSaveAs(ParentFormModel.CurrentProject) == DialogResult.OK)
             {
                 OpenFlowsWater.SetMaxProjects(5);
-                WaterModel = OpenFlowsWater.GetModel(ParentFormModel.CurrentProject);
+                WaterModel = WaterApplicationManager.GetInstance().CurrentWaterModel;
+                //WaterModel = OpenFlowsWater.GetModel(ParentFormModel.CurrentProject);
                 BingBackgroundLayerFormModel = NewBingBackgroundLayerFormModel();
+
+                Text = $"Bing Background Layer - {WaterModel.ModelInfo.Filename}";
+
+                var newProjectFullPath = ParentFormModel.CurrentProject.FullPath;
+                var mbox = MessageBox.Show(this, "Would you like to open the newly saved file in the main application?", "Open in Water[GEMS/CAD/OPS]", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (mbox == DialogResult.Yes)
+                {
+                    Process.Start(newProjectFullPath);
+                }
             }
         }
         private void toolStripButtonAddBingMap_Click(object sender, EventArgs e)
