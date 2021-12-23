@@ -116,6 +116,7 @@ namespace OFW.BingBackground.Forms
 
             return documentControl;
         }
+
         private void SelectTool(IDrawingTool atool)
         {
             if (LayoutController != null
@@ -271,7 +272,6 @@ namespace OFW.BingBackground.Forms
             {
                 OpenFlowsWater.SetMaxProjects(5);
                 WaterModel = WaterApplicationManager.GetInstance().CurrentWaterModel;
-                //WaterModel = OpenFlowsWater.GetModel(ParentFormModel.CurrentProject);
                 BingBackgroundLayerFormModel = NewBingBackgroundLayerFormModel();
 
                 Text = $"Bing Background Layer - {WaterModel.ModelInfo.Filename}";

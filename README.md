@@ -167,3 +167,19 @@ public class WaterAppManager : WaterApplicationManager
         => new WaterProductApplicationModel(LicensePlatformType.Standalone, "10.00.00.00", null);
 }
 ```
+
+## Other projects based on OpenFlows Water and/or WaterObjects.NET
+
+* [Isolation Valve Adder](https://github.com/worthapenny/OpenFlows-Water--IsolationValveAdder)
+* [Bing Background Adder](https://github.com/worthapenny/OpenFlows-Water--BingBackground)
+* [Model Merger](https://github.com/worthapenny/OpenFlows-Water--ModelMerger)
+* [Demand to CustomerMeter](https://github.com/worthapenny/OpenFlows-Water--DemandToCustomerMeter)
+
+## Did you know?
+
+Now, you can work with Bentley Water products with python as well. Check out:
+
+* [Github pyofw](https://github.com/worthapenny/pyofw)
+* [PyPI pyofw](https://pypi.org/project/pyofw/)
+
+![pypi-image](https://github.com/worthapenny/OpenFlows-Water--ModelMerger/blob/main/images/pypi_pyofw.png "pyOFW module on pypi.org")
